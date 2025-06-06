@@ -1,2 +1,7 @@
 jsonwebtoken
 cloudinary
+bcrypt
+bcryptjs
+fs
+cloudinary
+multer
