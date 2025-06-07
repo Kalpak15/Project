@@ -108,7 +108,7 @@ The **Student Management REST API** empowers administrators to efficiently manag
 
 ```bash
 # 1️⃣ Clone the repository
-git clone https://github.com/your-username/student-management-api.git
+git clone https://github.com/Kalpak15/Student-Management-REST-API-.git
 cd student-management-api
 
 # 2️⃣ Install dependencies
@@ -139,6 +139,8 @@ MONGO_URI=mongodb://localhost:27017/student-management
 
 # Security Configuration
 JWT_SECRET=your_secure_jwt_secret_key_here
+
+
 ```
 
 > ⚠️ **Security Note:** Never commit your `.env` file to version control. Use `.env.example` for sharing structure.
@@ -149,10 +151,10 @@ JWT_SECRET=your_secure_jwt_secret_key_here
 
 ### 🔐 **Authentication Endpoints**
 
-| Method | Endpoint | Description | Protected |
-|--------|----------|-------------|-----------|
-| `POST` | `/auth/register` | Register new admin | ❌ |
-| `POST` | `/auth/login` | Login & get JWT token | ❌ |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/auth/register` | Register new admin |
+| `POST` | `/auth/login` | Login & get JWT token |
 
 ### 🎓 **Student Endpoints**
 
@@ -180,8 +182,13 @@ JWT_SECRET=your_secure_jwt_secret_key_here
 | `GET` | `/courses?title=abc` | Search courses by title | ✅ |
 | `GET` | `/students?page=2&department=IT` | Paginated & filtered students | ✅ |
 
----
+| Description | Protected |
+|-------------|-----------|
+| Input validation using express-validator  | ✅ |
+|Logging with winston or morgan| ✅ |
 
+---
+Input validation using express-validator 
 ## 🔐 Authentication Guide
 
 <details>
@@ -272,8 +279,8 @@ We've included a comprehensive Postman collection for easy testing!
 | 📄 **Pagination** | ✅ | Efficient data handling with page limits |
 | 🏷️ **Filtering** | ✅ | Department-based student filtering |
 | 🖼️ **File Upload** | 🔄 | Profile picture uploads with Multer |
-| ✅ **Validation** | 🔄 | Input validation with express-validator |
-| 📋 **Logging** | 🔄 | Request logging with Morgan/Winston |
+| ✅ **Validation** | ✅ | Input validation with express-validator |
+| 📋 **Logging** | ✅ | Request logging with Morgan/Winston |
 | ⏱️ **Rate Limiting** | 🔄 | API protection with rate limiting |
 
 > 🔄 = Planned for future development
@@ -285,6 +292,7 @@ We've included a comprehensive Postman collection for easy testing!
 ```
 student-management-api/
 ├── 📁 config/              # Database and environment configs
+├── 📁 controllers/          # Authentication middleware
 ├── 📁 middleware/          # Authentication middleware
 ├── 📁 models/              # Mongoose schemas
 │   ├── Student.js
@@ -297,7 +305,7 @@ student-management-api/
 ├── 📁 postman/             # Postman collection
 ├── 📄 .env.example         # Environment template
 ├── 📄 .gitignore          # Git ignore rules
-├── 📄 app.js              # Application entry point
+├── 📄 index.js              # Application entry point
 ├── 📄 package.json        # Dependencies & scripts
 └── 📄 README.md           # This documentation
 ```
@@ -351,11 +359,11 @@ See the [LICENSE](LICENSE) file for details
 
 ### 👨‍💻 **Developed by**
 
-**[Your Name]**
+**Kalpak Kulkarni**
 
-📧 **Contact:** [your.email@example.com]  
-🐙 **GitHub:** [Your GitHub Profile]  
-🏢 **For:** Bits and Volts Pvt. Ltd., Pune, IN
+📧 **Contact:** [kulkarnikalpak15@gmail.com]  
+🐙 **GitHub:** [[Your GitHub Profile](https://github.com/Kalpak15)]  
+
 
 ---
 
