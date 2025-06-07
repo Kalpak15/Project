@@ -1,18 +1,22 @@
+
 const Student = require('../models/Student');
-const cloudinary = require('../config/cloudinary')
-const fs = require('fs')
+const cloudinary = require('../config/cloudinary');
+const fs = require('fs');
 
 
-
+// List of all students with course info 
 const getAllStudents = async (req, res, next) => {
   try {
     const students = await Student.find().populate('enrolledCourses', 'title description credits');
     res.json(students);
   } catch (err) {
+    console.error(`Error fetching students: ${err.message}`);
     next(err);
   }
 };
 
+
+// Get a student by ID with their courses 
 const getStudentById = async (req, res, next) => {
   try {
     const student = await Student.findById(req.params.id).populate('enrolledCourses', 'title description credits');
@@ -21,33 +25,29 @@ const getStudentById = async (req, res, next) => {
     }
     res.json(student);
   } catch (err) {
+    console.error(`Error fetching student by ID: ${err.message}`);
     next(err);
   }
 };
 
+
+//  Create a new student 
 const createStudent = async (req, res, next) => {
   const { name, email, age, department, enrolledCourses } = req.body;
   
   try {
-    let profilePicture = null;
-    if (req.file) {
-      const uploadResult = await cloudinary.uploader.upload(req.file.path, {
-        folder: "profile_pictures",
-      });
-      profilePicture = {
-        url: uploadResult.secure_url,
-        publicId: uploadResult.public_id,
-      };
-      fs.unlinkSync(req.file.path);
-    }
-    const student = new Student({ name, email, age, department, enrolledCourses , profilePicture});
+   
+    const student = new Student({ name, email, age, department, enrolledCourses});
     await student.save();
     res.status(201).json(student);
   } catch (err) {
+    console.error(`Error creating student: ${err.message}`);
     next(err);
   }
 };
 
+
+//  Update student data 
 const updateStudent = async (req, res, next) => {
   try {
     const student = await Student.findByIdAndUpdate(
@@ -60,10 +60,13 @@ const updateStudent = async (req, res, next) => {
     }
     res.json(student);
   } catch (err) {
+    console.error(`Error updating student: ${err.message}`);
     next(err);
   }
 };
 
+
+//  Delete a student
 const deleteStudent = async (req, res, next) => {
   try {
     const student = await Student.findByIdAndDelete(req.params.id);
@@ -72,14 +75,19 @@ const deleteStudent = async (req, res, next) => {
     }
     res.json({ message: 'Student deleted' });
   } catch (err) {
+    console.error(`Error deleting student: ${err.message}`);
     next(err);
   }
 };
 
-module.exports = {
+// Debug the exports
+const exportsObj = {
   getAllStudents,
   getStudentById,
   createStudent,
   updateStudent,
   deleteStudent,
 };
+console.log('Exporting StudentController functions:', exportsObj);
+
+module.exports = exportsObj;

@@ -3,14 +3,9 @@ const jwt=require('jsonwebtoken')
 const cloudinary=require('../config/cloudinary');
 const Admin = require('../models/Admin');
 
-
-
-
 require('dotenv').config()
 
-
-
-
+//  Register new admin
 const signup = async (req, res) => {
   try {
     const {
@@ -38,17 +33,6 @@ const signup = async (req, res) => {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    // let profilePicture = null;
-    // if (req.file) {
-    //   const uploadResult = await cloudinary.uploader.upload(req.file.path, {
-    //     folder: "profile_pictures",
-    //   });
-    //   profilePicture = {
-    //     url: uploadResult.secure_url,
-    //     publicId: uploadResult.public_id,
-    //   };
-    //   fs.unlinkSync(req.file.path);
-    // }
 
     const newUser = await Admin.create({
       username,
@@ -72,6 +56,7 @@ const signup = async (req, res) => {
 };
 
 
+//  Login and get token 
 const login = async (req, res) => {
   const { email, password } = req.body;
 
