@@ -32,17 +32,17 @@ The **Student Management REST API** empowers administrators to efficiently manag
 <details>
 <summary>Click to expand navigation</summary>
 
-- [✨ Features](#-features)
-- [🛠️ Tech Stack](#️-tech-stack)
-- [⚙️ Setup & Installation](#️-setup--installation)
-- [🔧 Environment Variables](#-environment-variables)
-- [📡 API Routes](#-api-routes)
-- [🔐 Authentication Guide](#-authentication-guide)
-- [📬 Postman Collection](#-postman-collection)
-- [🎉 Bonus Features](#-bonus-features)
-- [📂 Project Structure](#-project-structure)
-- [🤝 Contributing](#-contributing)
-- [📜 License](#-license)
+- ✨ Features
+- 🛠️ Tech Stack
+- ⚙️ Setup & Installation
+- 🔧 Environment Variables
+- 📡 API Routes
+- 🔐 Authentication Guide
+- 📬 Postman Collection
+- 🎉 Bonus Features
+- 📂 Project Structure
+- 🤝 Contributing
+- 📜 License
 
 </details>
 
@@ -139,8 +139,6 @@ MONGO_URI=mongodb://localhost:27017/student-management
 
 # Security Configuration
 JWT_SECRET=your_secure_jwt_secret_key_here
-
-
 ```
 
 > ⚠️ **Security Note:** Never commit your `.env` file to version control. Use `.env.example` for sharing structure.
@@ -182,13 +180,15 @@ JWT_SECRET=your_secure_jwt_secret_key_here
 | `GET` | `/courses?title=abc` | Search courses by title | ✅ | 
 | `GET` | `/students?page=2&department=IT` | Paginated & filtered students |✅ |  
 
+**Additional Implemented Features:**
+
 | Description | Status |
 |-------------|-----------|
 | Input validation using express-validator  | ✅ |
 |Logging with winston or morgan| ✅ |
 
 ---
-Input validation using express-validator 
+
 ## 🔐 Authentication Guide
 
 <details>
@@ -361,9 +361,8 @@ See the [LICENSE](LICENSE) file for details
 
 **Kalpak Kulkarni**
 
-📧 **Contact:** kulkarnikalpak15@gmail.com
+📧 **Contact:** kulkarnikalpak15@gmail.com  
 🐙 **GitHub:** https://github.com/Kalpak15
-
 
 ---
 
