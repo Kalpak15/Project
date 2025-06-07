@@ -177,12 +177,12 @@ JWT_SECRET=your_secure_jwt_secret_key_here
 
 ### 🎁 **Bonus Endpoints**
 
-| Method | Endpoint | Description | Protected |
+| Method | Endpoint | Description | Protected | 
 |--------|----------|-------------|-----------|
-| `GET` | `/courses?title=abc` | Search courses by title | ✅ |
-| `GET` | `/students?page=2&department=IT` | Paginated & filtered students | ✅ |
+| `GET` | `/courses?title=abc` | Search courses by title | ✅ | 
+| `GET` | `/students?page=2&department=IT` | Paginated & filtered students |✅ |  
 
-| Description | Protected |
+| Description | Status |
 |-------------|-----------|
 | Input validation using express-validator  | ✅ |
 |Logging with winston or morgan| ✅ |
@@ -292,7 +292,7 @@ We've included a comprehensive Postman collection for easy testing!
 ```
 student-management-api/
 ├── 📁 config/              # Database and environment configs
-├── 📁 controllers/          # Authentication middleware
+├── 📁 controllers/          # Business Logic
 ├── 📁 middleware/          # Authentication middleware
 ├── 📁 models/              # Mongoose schemas
 │   ├── Student.js
@@ -361,8 +361,8 @@ See the [LICENSE](LICENSE) file for details
 
 **Kalpak Kulkarni**
 
-📧 **Contact:** [kulkarnikalpak15@gmail.com]  
-🐙 **GitHub:** [[Your GitHub Profile](https://github.com/Kalpak15)]  
+📧 **Contact:** kulkarnikalpak15@gmail.com
+🐙 **GitHub:** https://github.com/Kalpak15
 
 
 ---
